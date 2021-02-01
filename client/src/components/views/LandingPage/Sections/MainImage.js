@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainImage(props) {
+function MainImage(props) {
   return (
     <div
       style={{
@@ -28,3 +28,5 @@ export default function MainImage(props) {
     </div>
   );
 }
+
+export default MainImage;
