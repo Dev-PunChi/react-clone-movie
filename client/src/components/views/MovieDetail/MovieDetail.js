@@ -3,6 +3,7 @@ import { API_KEY, API_URL, IMAGE_BASE_URL } from "../../Config";
 import MainImage from "../LandingPage/Sections/MainImage";
 import MovieInfo from "./Sections/MovieInfo";
 import GridCards from "../commons/GridCards";
+import Favorite from "./Sections/Favorite";
 import { Row } from "antd";
 
 function MovieDetail(props) {
@@ -25,7 +26,7 @@ function MovieDetail(props) {
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         setCasts(response.cast);
       });
   }, []);
@@ -42,6 +43,14 @@ function MovieDetail(props) {
         text={Movie.overview}
       />
       <div style={{ width: "85%", margin: "1rem auto" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Favorite
+            userFrom={localStorage.getItem("userId")}
+            movieId={movieId}
+            movieInfo={Movie}
+          />
+        </div>
+
         <MovieInfo movie={Movie} />
         <br />
 
