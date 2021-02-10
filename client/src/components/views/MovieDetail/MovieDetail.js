@@ -13,20 +13,17 @@ function MovieDetail(props) {
   const [ActorToggle, setActorToggle] = useState(false);
 
   useEffect(() => {
-    //console.log(props.match);
     const endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
     const endpointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=ko-KR`;
     fetch(endpointInfo)
       .then((response) => response.json())
       .then((response) => {
-        //console.log(response);
         setMovie(response);
       });
 
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
-        //console.log(response);
         setCasts(response.cast);
       });
   }, []);
